@@ -4,6 +4,7 @@ use crate::rat;
 use crate::resolution;
 use crate::player;
 use crate::projectile;
+use crate::audio;
 pub struct GamePlugin;
 
 impl Plugin for GamePlugin{
@@ -14,7 +15,8 @@ impl Plugin for GamePlugin{
                 rat::RatPlugin,
                 resolution::ResolutionPlugin,
                 player::PlayerPlugin,
-                projectile::ProjectilePlugin
+                projectile::ProjectilePlugin,
+                audio::AudioPlugin
             )
         )
         .add_systems(Startup, setup_scene);

@@ -1,7 +1,10 @@
 use bevy::prelude::*;
+use bevy_audio::Volume;
 
+use crate::audio::Sound;
 use crate::resolution;
 use crate::projectile;
+use crate::audio;
 
 pub struct PlayerPlugin;
 impl Plugin for PlayerPlugin{
@@ -44,6 +47,7 @@ fn update_player(
     time : Res<Time>,
     keys : Res<ButtonInput<KeyCode>>,
     resolution : Res<resolution::Resolution>,
+    sound : Res<audio::Sound>
 )
 {
     let(mut player, mut transform) = player_query.single_mut();
@@ -94,16 +98,22 @@ fn update_player(
                 speed : BULLET_SPEED
             }
         ));
-        play_shoot_sfx(commands, asset_server);
+        play_shoot_sfx(commands, asset_server, sound);
     }
 
 }
 fn play_shoot_sfx(
-    mut commands : Commands, asset_server : Res<AssetServer>
+    mut commands : Commands, 
+    asset_server : Res<AssetServer>, 
+    sound : Res<audio::Sound>
 )
 {
     commands.spawn(AudioBundle{
         source : asset_server.load("audio/shoot.wav"),
+        settings : PlaybackSettings{
+            volume : sound.volume,
+            ..default()
+        },
         ..default()
     });
 }

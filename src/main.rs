@@ -5,6 +5,7 @@ pub mod rat;
 pub mod resolution;
 pub mod player;
 pub mod projectile;
+pub mod audio;
 
 fn main()
 {
