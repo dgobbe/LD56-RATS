@@ -1,0 +1,1 @@
+for some reason github just didn't want to cooperate, so the "MASTER" branch is the one I've uploaded the most recent stuff to. The "MAIN" branch only contains init files. Merging doesnt work because they are to different apparently so yeah.
