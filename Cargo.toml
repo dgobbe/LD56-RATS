@@ -5,3 +5,5 @@ edition = "2021"
 
 [dependencies]
 bevy = "0.14"
+bevy_audio = { version = "0.14.2", features = ["wav"] }
+# bevy_kira_audio = { version = "0.20.0", features = ["ogg", "wav"] }
